@@ -18,7 +18,6 @@ public class HelloWorldEndpoints {
    // Declare this method as a method available externally through Endpoints
     @ApiMethod(name = "sayHello", path = "sayHello",
             httpMethod = HttpMethod.GET)
-
     public HelloClass sayHello() {
         return new HelloClass();
     }
@@ -31,9 +30,17 @@ public class HelloWorldEndpoints {
         return new HelloClass(name);
     }
     
+ // Declare this method as a method available externally through Endpoints
     @ApiMethod(name ="greetByPeriod", path = "greetByPeriod", httpMethod = HttpMethod.GET)
     public HelloClass greetByPeriod(@Named("name") String name,    @Named("period") String period){
     	return new HelloClass(name,period);
+    }
+    
+    // Declare this method as a method available externally through Endpoints
+    @ApiMethod(name = "sayTime", path = "sayTime",
+            httpMethod = HttpMethod.GET)
+    public SayTime sayTime() {
+        return new SayTime();
     }
 
 }

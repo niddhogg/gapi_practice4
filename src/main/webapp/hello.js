@@ -59,6 +59,13 @@ function enableButtons () {
 	
 	// Update the button label now that the button is active
 	btn.value="Click me for a period greeting";
+	
+	// Set the onclick action for the third button
+	btn = document.getElementById("say_time");
+	btn.onclick=function(){sayTime();};
+	
+	// Update the button label now that the button is active
+	btn.value="Click me to get current server time";
 }
 
 /*
@@ -105,6 +112,19 @@ function greetByPeriod(){
 }
 
 
+// TIME REQUEST
+function sayTimeCallback (response) {
+	alert(response.time);	
+}
+
+function sayTime(){
+	// Construct the request for the sayTime() function
+	var request = gapi.client.helloworldendpoints.sayTime();
+	
+	// Execute the request.
+	// On success, pass the response to sayTimeCallback()
+	request.execute(sayTimeCallback);
+}
 
 
 
